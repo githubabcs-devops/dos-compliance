@@ -1,4 +1,4 @@
-# Last applied at: Thu, 09 Jan 2025 14:42:09 GMT
+# Last applied at: Mon, 20 Jan 2025 03:14:03 GMT
 # DevOps Shield - The ultimate DevSecOps platform designed to secure your DevOps.
 # https://devopsshield.com
 ##############################################################
@@ -20,6 +20,7 @@
 # Scan Docker container images for vulnerabilities in OS packages and language dependencies with Trivy from Aqua Security.
 # Trivy is a comprehensive and versatile security scanner. 
 # Trivy has scanners that look for security issues, and targets where it can find those issues.
+# Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more.
 # Read the official documentation to find out more. 
 # For more information: 
 # https://trivy.dev/latest/
@@ -58,7 +59,7 @@ jobs:
         docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
     - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe
+      uses: aquasecurity/trivy-action@v0.29.0
       with:
         image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
         format: 'sarif'
